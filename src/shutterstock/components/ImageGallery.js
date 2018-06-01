@@ -60,14 +60,23 @@ class ImageGallery extends Component {
       }
 
       const todoItems = rows.map((todo) =>
-          <div class="image" key={todo.id}>
-              <img src={todo.assets.preview.url} alt="ceca"/>
-              <p>{todo.description}</p>
+          <div class="col-md-6 col-lg-4" key={todo.id}>
+              <div class="card border-0 transform-on-hover">
+                  <a class="lightbox" href={todo.assets.preview.url}>
+                      <img src={todo.assets.preview.url} alt="Card Image" class="card-img-top"/>
+                  </a>
+                  <div class="card-body">
+                      <h6><a href="#">Lorem Ipsum</a></h6>
+                      <p class="text-muted card-text">{todo.description}</p>
+                  </div>
+              </div>
           </div>
+          
+          
       );
 
       return (
-          <div>{todoItems}</div>
+          <div class="row">{todoItems}</div>
       );
   }
 }
