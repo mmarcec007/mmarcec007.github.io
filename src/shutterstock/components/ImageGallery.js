@@ -66,7 +66,7 @@ class ImageGallery extends Component {
                       <img src={todo.assets.preview.url} alt="Card Image" class="card-img-top"/>
                   </a>
                   <div class="card-body">
-                      <h6><a href="#">#{todo.id}</a></h6>
+                      <h6><a href={"https://www.shutterstock.com/image-photo/" + todo.id}>#{todo.id}</a></h6>
                       <p class="text-muted card-text">{todo.description}</p>
                   </div>
               </div>
