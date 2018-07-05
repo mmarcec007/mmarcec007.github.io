@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ImageGallery from './shutterstock/components/ImageGallery.js'
 import baguetteBox from 'baguettebox.js';
@@ -12,10 +11,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title"> Welcome to my awesome photo gallery powered by Shutterstock.</h1>
-        </header>
+          <div className="jumbotron jumbotron-fluid">
+              <div className="container">
+                  <h1 className="display-4">My Photo Gallery</h1>
+                  <p className="lead">Welcome to my awesome photo gallery powered by Shutterstock.</p>
+              </div>
+          </div>
           <section class="gallery-block cards-gallery">
               <div class="container">
                 <ImageGallery/>
