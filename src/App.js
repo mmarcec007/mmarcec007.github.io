@@ -6,7 +6,7 @@ import Banner from './shutterstock/components/Banner.js'
 
 class App extends Component {
     componentDidMount() {
-        baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
+        baguetteBox.run('.cards-gallery', { animation: 'slideIn', noScrollbars: true});
     }
   render() {
     return (
