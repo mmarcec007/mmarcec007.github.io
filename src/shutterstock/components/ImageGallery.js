@@ -15,8 +15,6 @@ class ImageGallery extends Component {
     };
   }
 
-
-
     static getNumbers() {
         if (jsonResponse) {
             return jsonResponse.map((key) => {
@@ -54,9 +52,22 @@ class ImageGallery extends Component {
     */
 }
 
-  render() {
+    logOpen(value) {
+        var date = new Date();
+        //console.log("Viewed image in full screen: " + this.logImageAccess(value, date));
+    }
 
+    logExternalLink(value, platform) {
+        var date = new Date();
+        //console.log("Viewed image on " + platform + " " + this.logImageAccess(value, date));
+    }
 
+    logImageAccess(value, date) {
+        return value + " " + date.getDate() + " " + date.getMonth() + " " + date.getFullYear()
+            + " " + date.getHours() + " " + date.getMinutes() + " " + date.getSeconds() + " " + date.getMilliseconds();
+    }
+
+    render() {
       let rows = [];
       for (let i = 0; i < list[0].length; i++) {
           // note: we add a key prop here to allow react to uniquely identify each
@@ -67,17 +78,15 @@ class ImageGallery extends Component {
       const todoItems = rows.map((todo) =>
           <div class="col-md-6 col-lg-4" key={todo.id}>
               <div class="card border-0 transform-on-hover">
-                  <a class="lightbox" href={todo.assets.preview.url}>
+                  <a class="lightbox" href={todo.assets.preview.url} onClick={() => this.logOpen(todo.id)}>
                       <img src={todo.assets.preview.url} alt="Card Image" class="card-img-top"/>
                   </a>
                   <div class="card-body">
-                      <h6><a href={"https://www.shutterstock.com/image-photo/" + todo.id}>#{todo.id}</a></h6>
+                      <h6><a href={"https://www.shutterstock.com/image-photo/" + todo.id} onClick={() => this.logExternalLink(todo.id, "shutterstock")}>#{todo.id}</a></h6>
                       <p class="text-muted card-text">{todo.description}</p>
                   </div>
               </div>
           </div>
-          
-          
       );
 
       return (
