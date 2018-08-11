@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import jsonResponse from '../model/images.json';
+import Masonry from 'react-masonry-component';
 let list = null;
+
+const masonryOptions = {
+    transitionDuration: 0
+};
 
 class ImageGallery extends Component {
   constructor() {
@@ -76,7 +81,14 @@ class ImageGallery extends Component {
       );
 
       return (
-          <div class="row">{todoItems}</div>
+          <Masonry
+              className={'row'} // default ''
+              options={masonryOptions} // default {}
+              disableImagesLoaded={false} // default false
+              updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+              imagesLoadedOptions={masonryOptions} >
+                  {todoItems}
+          </Masonry>
       );
   }
 }

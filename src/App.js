@@ -18,7 +18,7 @@ class App extends Component {
               </div>
           </div>
           <section class="gallery-block cards-gallery">
-              <div class="container">
+              <div class="container grid">
                 <ImageGallery/>
               </div>
           </section>
