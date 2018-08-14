@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import jsonResponse from '../model/images.json';
-import Masonry from 'react-masonry-component';
 let list = null;
-
-const masonryOptions = {
-    transitionDuration: 0
-};
 
 class ImageGallery extends Component {
   constructor() {
@@ -76,28 +71,21 @@ class ImageGallery extends Component {
       }
 
       const todoItems = rows.map((todo) =>
-          <div class="col-md-6 col-lg-4" key={todo.id}>
-              <div class="card border-0 transform-on-hover">
-                  <a class="lightbox" href={todo.assets.preview.url} onClick={() => this.logOpen(todo.id)}>
-                      <img src={todo.assets.preview.url} alt="Card Image" class="card-img-top"/>
-                  </a>
-                  <div class="card-body">
-                      <h6><a href={"https://www.shutterstock.com/image-photo/" + todo.id} onClick={() => this.logExternalLink(todo.id, "shutterstock")}>#{todo.id}</a></h6>
-                      <p class="text-muted card-text">{todo.description}</p>
-                  </div>
+          <div class="card border-0 transform-on-hover">
+              <a class="lightbox" href={todo.assets.preview.url} onClick={() => this.logOpen(todo.id)}>
+                  <img src={todo.assets.preview.url} alt="Card Image" class="card-img-top"/>
+              </a>
+              <div class="card-body">
+                  <h6><a href={"https://www.shutterstock.com/image-photo/" + todo.id} onClick={() => this.logExternalLink(todo.id, "shutterstock")}>#{todo.id}</a></h6>
+                  <p class="text-muted card-text">{todo.description}</p>
               </div>
           </div>
       );
 
       return (
-          <Masonry
-              className={'row'} // default ''
-              options={masonryOptions} // default {}
-              disableImagesLoaded={false} // default false
-              updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-              imagesLoadedOptions={masonryOptions} >
-                  {todoItems}
-          </Masonry>
+          <div className="card-columns">
+              {todoItems}
+          </div>
       );
   }
 }

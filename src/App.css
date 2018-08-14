@@ -84,3 +84,21 @@
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15) !important;
   }
 }
+
+@media (min-width: 576px) {
+  .card-columns {
+    column-count: 2!important;
+  }
+}
+
+@media (min-width: 767px) {
+  .card-columns {
+    column-count: 2!important;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-columns {
+    column-count: 3!important;
+  }
+}
